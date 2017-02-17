@@ -11,7 +11,8 @@ This app decrypts `mega://enc2` links passed as an argument
 2. `cd megadecrypter`
 3. `crystal build --release src/megadecrypter.cr`
 
-If you want to install it permanently:
+If you want to install it permanently:  
+
 1. `sudo mv ./megadecrypter /usr/bin/`
 2. `sudo chmod 755 /usr/bin/megadecrypter; sudo chown root:root /usr/bin/megadecrypter`
 
