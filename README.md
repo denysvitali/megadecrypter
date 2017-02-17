@@ -3,7 +3,7 @@
 This app decrypts `mega://enc2` links passed as an argument
 
 ## Requirements
-- [Crystal](https://crystal-lang.org)
+- [Crystal](https://crystal-lang.org) ([install instructions](https://crystal-lang.org/docs/installation/index.html))
 
 ## Installation
 
