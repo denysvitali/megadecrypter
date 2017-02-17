@@ -1,22 +1,30 @@
 # megadecrypter
 
-TODO: Write a description here
+This app decrypts `mega://enc2` links passed as an argument
+
+## Requirements
+- [Crystal](https://crystal-lang.org)
 
 ## Installation
 
-TODO: Write installation instructions here
+1. `git clone https://github.com/denysvitali/megadecrypter/`
+2. `cd megadecrypter`
+3. `crystal build --release src/megadecrypter.cr`
+
+If you want to install it permanently:
+4. `sudo mv ./megadecrypter /usr/bin/`
+5. `sudo chmod 755 /usr/bin/megadecrypter; sudo chown root:root /usr/bin/megadecrypter`
+
+If you want to run it just once:
+4. `./megadecrypter`
 
 ## Usage
 
-TODO: Write usage instructions here
-
-## Development
-
-TODO: Write development instructions here
+`megadecrypter "mega://enc2?encryptedString"`
 
 ## Contributing
 
-1. Fork it ( https://github.com/[your-github-name]/megadecrypter/fork )
+1. Fork it ( https://github.com/denysvitali/megadecrypter/fork )
 2. Create your feature branch (git checkout -b my-new-feature)
 3. Commit your changes (git commit -am 'Add some feature')
 4. Push to the branch (git push origin my-new-feature)
@@ -24,4 +32,4 @@ TODO: Write development instructions here
 
 ## Contributors
 
-- [[your-github-name]](https://github.com/[your-github-name]) Denys Vitali - creator, maintainer
+- [denysvitali](https://github.com/denysvitali) Denys Vitali - creator, maintainer
