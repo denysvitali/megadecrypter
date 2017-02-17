@@ -6,46 +6,24 @@ require "secure_random"
 module Megadecrypter
   class Crypto
     @enc_xor = [12, 0x39, 0xfb, 120, 0x12, 0x4b, 6, 250, 0x55]
-    @pwd2 = "nYrXa@9Q\x00bf1&hCWM\\9(731Bp?t42=!k3.";
+    @pwd2 : Bytes
+
+    def initialize()
+      @pwd2 = UInt8.slice(110, 89, 114, 88, 97, 64, 57, 81, 63, 49, 38, 104, 67, 87, 77, 92, 57, 40, 55, 51, 49, 66, 112, 63, 116, 52, 50, 61, 33, 107, 51, 46);
+    end
 
     def getBytes
-      #length = 0
-      #remaining = 0
-      #byteDecKey = [] of UInt8
-      #temp = ""
+      byteDecKey = @pwd2
+      maxBK = byteDecKey.size - 1
 
-      #length = @pwd2.size
-      #if length >= 32
-      #  temp = @pwd2[0, 32]
-      #else
-      #  remaining = 32 - length
-      #  temp = @pwd2 + "X"*remaining
-      #end
-
-      ##byteDecKey = temp.to_slice
-
-      #array = [] of UInt8
-      #temp.each_char do |char|
-      #  array << char.bytes[0] unless !char.ascii?
-      #end
-
-      #puts array
-      ##byteDecKey = array
-      #maxBK = array.size - 1
-
-
-      #0.upto(159) do |i|
-      #  byteDecKey[i % 32] = byteDecKey[i % 32] ^ @enc_xor[i % 9]
-      #  puts "#{byteDecKey[i%32]}^#{@enc_xor[i%9]} = #{byteDecKey[i % 32] ^ @enc_xor[i % 9]} (#{i % maxBK})"
-      #end
-      #slice = Slice(UInt8).new(32)
-      ##puts slice
-      #0.upto(maxBK) do |i|
-      #  #puts byteDecKey[i]
-      #  slice[i] = byteDecKey[i]
-      #end
-      #slice
-      Base64.decode("7R9MIAs1E5gGsmBWOz04dvARtHUPOhpKXv0LvmdVS0Q=")
+      0.upto(159) do |i|
+        byteDecKey[i % 32] = byteDecKey[i % 32] ^ @enc_xor[i % 9]
+      end
+      slice = Slice(UInt8).new(32)
+      0.upto(maxBK) do |i|
+        slice[i] = byteDecKey[i]
+      end
+      slice
     end
 
     def decrypt(string)
