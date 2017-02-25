@@ -76,7 +76,7 @@ module Megadecrypter
   end
 
   def self.printHelp()
-    puts "Usage: ./megadec mega://enc2?encryptedString"
+    puts "Usage: megadecrypter 'mega://enc2?encryptedString'"
   end
 
   if ARGV.size < 1
