@@ -81,6 +81,7 @@ module Megadecrypter
 
   if ARGV.size < 1
     self.printHelp()
+    exit
   end
 
   self.decryptLink(ARGV[0])
