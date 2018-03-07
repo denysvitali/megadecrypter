@@ -47,6 +47,10 @@ module Megadecrypter
       s1
     end
 
+    def encrypt(string)
+      string = Base64.encode(dirtyString(string))
+    end
+
     def cleanString(string)
       string = string
         .gsub("-","+")
@@ -54,6 +58,19 @@ module Megadecrypter
         .gsub(",", "")
       string + "=="
     end
+
+    def dirtyString(string)
+      string = string
+        .gsub("+","-")
+        .gsub("/","_")
+      string
+    end
+  end
+
+  def self.encryptLink(string)
+    mdata = string.match(/^https:\/\/mega\.nz\/#\![A-z0-9]{8}\![A-z0-9_-]{40,}/i)
+    
+      
   end
 
   def self.decryptLink(string)
@@ -76,7 +93,8 @@ module Megadecrypter
   end
 
   def self.printHelp()
-    puts "Usage: megadecrypter 'mega://enc2?encryptedString'"
+    puts "Decrypt: megadecrypter 'mega://enc2?encryptedString'"
+    puts "Encrypt: megadecrypter 'https://mega.nz/#!YjAD1ITK!vUnvsJhkhD6R01YllROk5DqKwHc6mr2VHSbiacQX7c8'"
   end
 
   if ARGV.size < 1
@@ -84,5 +102,14 @@ module Megadecrypter
     exit
   end
 
-  self.decryptLink(ARGV[0])
+  if(ARGV[0].match(/^https:\/\/mega\.nz\//i))
+    puts "Encrypt..."
+    self.encryptLink(ARGV[0])
+  elsif(ARGV[0].match(/^mega:\/\/(f|)enc2\?(.*)$/i))
+    puts "Decrypt..."
+    self.decryptLink(ARGV[0])
+  else
+    STDERR.puts "Unable to encrypt / decrpyt the provided link"
+  end
+  #self.decryptLink(ARGV[0])
 end
