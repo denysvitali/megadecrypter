@@ -1,7 +1,6 @@
 require "./megadecrypter/*"
 require "openssl/cipher"
 require "base64"
-require "secure_random"
 
 module Megadecrypter
   class Crypto
