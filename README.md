@@ -2,6 +2,11 @@
 
 This app decrypts `mega://enc2` links passed as an argument
 
+## Run with Docker (easier)
+
+1. `docker build -t denysvitali/megadecrypter .`
+2. `docker run --rm denysvitali/megadecrypter ./megadecrypter`
+
 ## Requirements
 - [Crystal](https://crystal-lang.org) ([install instructions](https://crystal-lang.org/docs/installation/index.html))
 
