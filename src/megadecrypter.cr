@@ -108,7 +108,7 @@ module Megadecrypter
     puts "Decrypt..."
     self.decryptLink(ARGV[0])
   else
-    STDERR.puts "Unable to encrypt / decrpyt the provided link"
+    STDERR.puts "Unable to encrypt / decrypt the provided link"
   end
   #self.decryptLink(ARGV[0])
 end
